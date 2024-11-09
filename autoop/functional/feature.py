@@ -9,9 +9,10 @@ def detect_feature_types(dataset: Dataset) -> List[Feature]:
     features = []
 
     # Go through each column in the dataset's DataFrame
-    for column_name in dataset.data.columns:
+    df = dataset.read()
+    for column_name in df.columns:
         # Determine the type of feature based on data type
-        if pd.api.types.is_numeric_dtype(dataset.data[column_name]):
+        if pd.api.types.is_numeric_dtype(df[column_name]):
             feature_type = "numerical"
         else:
             feature_type = "categorical"

@@ -19,19 +19,17 @@ class Artifact(BaseModel):
         tags (List[str]): List of tags categorizing the artifact.
     """
 
-    asset_path: str = Field(...,
-                            description="The path where the asset is stored.")
-    version: str = Field(...,
-                         description="The version of the artifact.")
-    data: bytes = Field(...,
-                        description="The binary data representing "
+    asset_path: str = Field(..., description="The path where the asset "
+                            "is stored.")
+    version: str = Field(..., description="The version of the artifact.")
+    data: bytes = Field(..., description="The binary data representing "
                         "the artifact.")
-    metadata: Dict[str, Any] = Field(...,
-                                     description="Additional metadata"
-                                     " for the artifact.")
+    metadata: Dict[str, Any] = Field(default_factory=dict,
+                                     description="Additional metadata for the "
+                                     "artifact.")
     type: str = Field(...,
-                      description="The type of artifact (e.g., 'model:torch')."
-                      )
+                      description="The type of artifact "
+                      "(e.g., 'model:torch').")
     tags: List[str] = Field(default_factory=list,
                             description="Tags for categorization.")
 
@@ -66,6 +64,15 @@ class Artifact(BaseModel):
             "type": self.type,
             "tags": self.tags,
         }
+
+    def read(self) -> bytes:
+        """
+        Read data from the artifact.
+
+        Returns:
+            bytes: The binary data representing the artifact's content.
+        """
+        return self.data
 
     class Config:
         """Pydantic configuration for allowing bytes in 'data'."""
