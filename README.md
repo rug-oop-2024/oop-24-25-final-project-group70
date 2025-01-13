@@ -153,12 +153,12 @@ If you did not implement the feature
 
 | Requirement                           | Type (FN/NF) | Implemented by       | Implementation Completed (add X if done) | Comment |
 |-------------------------------------- |--------------|----------------------|--------------------------|---------|         
-| Up-to-date requirements.txt           | NF           |                      |         | |
-| `ML/detect-features`                  | FN           |                      |         | |
-| `ML/artifact`                         | NF           |                      |         | |
-| `ML/feature`                          | NF           |                      |         | |
-| `ML/metric`                           | NF           |                      |         | |
-| `ML/metric/extensions`                | FN           |                      |         | |
+| Up-to-date requirements.txt           | NF           | Stijn & Joel         |         | | Not yet finally determined.
+| `ML/detect-features`                  | FN           | Stijn Huizinga       |   X     | | Accepted by test_features.
+| `ML/artifact`                         | NF           | Stijn Huizinga       |         | | Not yet tested.
+| `ML/feature`                          | NF           | Stijn Huizinga       |   X     | | Accepted by test_features.
+| `ML/metric`                           | NF           | Stijn Huizinga       |         | | Not yet tested.
+| `ML/metric/extensions`                | FN           | Stijn Huizinga       |         | | Not yet tested.
 | `ML/model`                            | NF           |                      |         | |
 | `ML/model/extensions`                 | FN           |                      |         | |
 | `ML/pipeline/evaluation`              | FN           |                      |         | | 
